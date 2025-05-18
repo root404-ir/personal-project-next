@@ -2,7 +2,6 @@ import { FaReact } from "react-icons/fa";
 import { FaNode } from "react-icons/fa";
 import { FaGitAlt } from "react-icons/fa";
 import { FaLinux } from "react-icons/fa";
-// import { TbBrandTailwind } from "react-icons/tb";
 import { FaWordpressSimple } from "react-icons/fa";
 
 const Icons = () => {

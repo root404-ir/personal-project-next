@@ -1,5 +1,4 @@
-import { Link } from 'react-router'
-import Image404 from '/assets/image/404/gettyimages-108350978-612x612-removebg-preview (1).png'
+import  Link from 'next/link'
 import '../styles/404.css'
 const Error404Page = () => {
   return (
@@ -10,11 +9,11 @@ const Error404Page = () => {
         </div>
 
         <div className='flex justify-center'>
-          <img src={Image404} alt="" />
+          <img src='/assets/image/404/gettyimages-108350978-612x612-removebg-preview (1).png' alt="" />
         </div>
 
         <div className='flex flex-col items-center gap-5'>
-          <Link to={'/'} className='bg-green-600 rounded-2xl p-2'>بیا بریم صفحه اصلی</Link>
+          <Link href={'/'} className='bg-green-600 rounded-2xl p-2'>بیا بریم صفحه اصلی</Link>
         </div>
       </div>
     </>

@@ -4,8 +4,6 @@ import { JalaliDate } from "./Date"
 import { IoIosArrowBack } from "react-icons/io"
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer"
 
-// import RichTextRender from "./RichTextRender"
-// import { PostContentRender } from "./PostContentRender"
 const BlogContent = ({ post, thumbnailUrl }) => {
     const summary = documentToPlainTextString(post.fields.richcontent).slice(0, 100) + '...'
     return (

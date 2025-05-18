@@ -1,5 +1,4 @@
 'use client'
-import Head from 'next/head'
 import { usePathname } from 'next/navigation'
 
 const TitlePage = () => {
