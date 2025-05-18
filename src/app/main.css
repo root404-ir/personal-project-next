@@ -1,0 +1,37 @@
+@import 'tailwindcss';
+
+@font-face {
+    font-family: kalameh;
+    src: url('/fonts/kalameh/KalamehWeb-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: kalameh-num;
+    src: url('/fonts/kalameh/KalamehWeb-FaNum-Regular.woff') format('woff');
+}
+
+body {
+    font-family: kalameh !important;
+    direction: rtl;
+    text-align: right;
+}
+
+.fanum {
+    font-family: kalameh-num;
+}
+
+
+.bg-contact-night {
+    --s: 150px;
+    /* control the size*/
+    --c1: #162456;
+    --c2: #00a63e;
+
+    --l: var(--c1) 20%, #0000 0;
+    --g: 35%, var(--c2) 0 45%, var(--c1) 0;
+    background:
+        linear-gradient(45deg, var(--l) 45%, var(--c1) 0 70%, #0000 0),
+        linear-gradient(-45deg, var(--l) var(--g) 70%, #0000 0),
+        linear-gradient(45deg, var(--c1) var(--g));
+    background-size: var(--s) var(--s);
+}
