@@ -86,7 +86,7 @@ const Blog = () => {
           )}
         </div>
 
-        <div className="flex justify-center my-8">
+        <div className="flex justify-center my-8 fanum">
           <ReactPaginate
             forcePage={currentPage}
             previousLabel={"قبلی"}
@@ -98,7 +98,7 @@ const Blog = () => {
             onPageChange={handlePageClick}
             containerClassName={"flex space-x-2 justify-center"}
             pageClassName={"px-4 py-2 rounded-full cursor-pointer bg-gray-400 hover:bg-gray-300"}
-            activeClassName={"bg-green-400 text-white"}
+            activeClassName={"bg-green-400 text-gray-950"}
             previousClassName={"px-4 py-2 text-black rounded-full bg-gray-300 hover:bg-gray-400"}
             nextClassName={"px-4 py-2 text-black rounded-full bg-gray-300 hover:bg-gray-400"}
             disabledClassName={"opacity-50 cursor-not-allowed"}

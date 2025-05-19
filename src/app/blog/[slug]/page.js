@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, use } from "react";
 import { createClient } from "contentful";
 import { GetThumbnail, LoadThumbnail } from "@/components/PostThumbnail";
 import { JalaliDate } from "@/components/Date";
@@ -10,23 +10,27 @@ import PostShare from "@/components/PostShare";
 import PostOptions from "@/components/PostOptions";
 import Skeleton from "react-loading-skeleton";
 import Scroll from "@/components/Scroll";
-import { PostContentRender } from "@/components/PostContentRender";
+// import { PostContentRender } from "@/components/PostContentRender";
 import { usePathname } from "next/navigation";
-
+import RichTextRender from "@/components/RichTextRender";
+import { PostContentRender } from "@/components/PostContentRender";
+import Image from "next/image";
+// import Img from 'next/image'
 export default function PostPage({ params }) {
-    const { slug } = params;
+    const { slug } = use(params);
 
     const [post, setPost] = useState(null);
     const [assets, setAssets] = useState([]);
     const { fontSize, fontWeight, lineSpacing } = useContext(PostOptionContext);
     const pathname = usePathname();
 
-    const client = createClient({
-        space: "fulkbl2s1yqz",
-        accessToken: "HTMhs9d6XgospFsw_OhKRCGKuRHoSbGxjf1xLgzTBkw"
-    });
+
 
     useEffect(() => {
+        const client = createClient({
+            space: "fulkbl2s1yqz",
+            accessToken: "HTMhs9d6XgospFsw_OhKRCGKuRHoSbGxjf1xLgzTBkw"
+        });
         client.getEntries({ content_type: 'post', 'fields.slug': slug, limit: 1 }).then(res => {
             setPost(res.items[0] || null);
             LoadThumbnail(res, client, setAssets);
@@ -68,14 +72,11 @@ export default function PostPage({ params }) {
                 </div>
             </div>
             {thumbnailUrl && (
-                <img id="content" src={thumbnailUrl} loading="lazy" alt={post.title} className="rounded-xl mb-4 w-full h-100 object-contain mt-5 mx-auto" />
+                <Image id="content" src={thumbnailUrl} loading="lazy" alt={post.fields.title} className="rounded-xl mb-4 object-contain mt-5 mx-auto" width={800} height={400}/>
             )}
-            <p
-                className="porse porse-lg mt-10 text-white px-10"
-                style={{ fontSize, fontWeight, lineHeight: lineSpacing }}
-            >
-                <PostContentRender content={post.fields.richcontent} />
-            </p>
+            <span className="porse porse-lg mt-10 text-white px-10" style={{ fontSize, fontWeight, lineHeight: lineSpacing }}>
+                <PostContentRender content={post.fields.richcontent}/>
+            </span>
             <PostShare url={typeof window !== "undefined" ? window.location.href : pathname} title={post.fields.title} />
             <PostOptions />
             <Scroll />

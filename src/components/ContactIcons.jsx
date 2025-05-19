@@ -7,7 +7,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
 import gsap from "gsap";
 import { useEffect } from "react";
-import  Link from 'next/link' 
+import Link from 'next/link'
 
 const ContactIcons = () => {
     const [contactMenuOpen, setContactMenuOpen] = useState(false)
@@ -24,6 +24,8 @@ const ContactIcons = () => {
             tl.to('.github', { y: 0 })
         }
     }, [contactMenuOpen])
+
+
     return (
         <>
             <div className="absolute left-[50] md:left-1 bottom-0 flex gap-10 my-5 md:top-10 z-10">
@@ -51,8 +53,3 @@ const ContactIcons = () => {
 }
 
 export default ContactIcons
-
-
-// ${contactMenuOpen && 'translate-x-20'}
-// ${contactMenuOpen && 'translate-x-32'}
-// ${contactMenuOpen && 'translate-x-44'}
