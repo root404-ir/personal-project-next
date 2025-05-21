@@ -34,11 +34,6 @@ const ContactIcons = () => {
                         <FaTelegramPlane className="text-2xl" />
                     </div>
                 </Link>
-                <Link href={'tel:+989306136838'}>
-                    <div title="تماس تلفنی" className={`bg-white border border-gray-400 call  md:absolute md:left-1 md:top-1 flex justify-center items-center text-black rounded-full p-2`}>
-                        <IoIosCall className="text-2xl" />
-                    </div>
-                </Link>
                 <Link href={'https://github.com/root404-ir'}>
                     <div title="گیت هاب" className={`bg-white border border-gray-400 github  md:absolute md:left-1 md:top-1 flex justify-center items-center text-black rounded-full p-2`}>
                         <PiGithubLogoBold className="text-2xl" />
