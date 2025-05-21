@@ -1,12 +1,8 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import algoliasearch from 'algoliasearch/lite'
 import { autocomplete } from '@algolia/autocomplete-js'
 import '@algolia/autocomplete-theme-classic'
-
-const searchClient = algoliasearch('LVKCS8LKZB', '160a361199c8fcf3c8f13f6de762a706')
-const index = searchClient.initIndex('post')
 
 const SearchBlog = () => {
   const containerRef = useRef(null)
@@ -20,30 +16,36 @@ const SearchBlog = () => {
       getSources({ query }) {
         return [
           {
-            sourceId: 'posts',
+            sourceId: 'post',
             getItems() {
               if (!query) return []
-              return index
-                .search(query, { hitsPerPage: 5 })
-                .then(({ hits }) => hits)
+              return fetch('/api/searchApi', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ query }),
+              })
+                .then(res => res.json())
+                .then(data => data.hits || [])
             },
             templates: {
               item({ item, html }) {
                 return html`
                   <div class="p-3 flex justify-start hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg w-full">
                     <a href="/blog/post/${item.slug}" class="block w-full">
-                      <h4 class="text-base font-bold text-gray-800 dark:text-gray-200">${item.title}</h4>
+                      <h4 class="text-base font-bold text-black">${item.title}</h4>
                     </a>
                   </div>
                 `
               },
               noResults({ html }) {
                 return html`<div class="p-3 text-center text-gray-400">چیزی پیدا نشد!</div>`
-              }
-            }
-          }
+              },
+            },
+          },
         ]
-      }
+      },
     })
   }, [])
 
