@@ -5,7 +5,7 @@ import { MenuContext } from "../contexts/MenuOpenContext"
 import TitlePage from "../components/TitlePage"
 import Header from "@/components/Header/Header"
 import Order from "@/components/Services"
-import Blog from "@/pages/Blog"
+import Blog from "@/app/blog/page"
 
 const MainLayout = ({ children }) => {
     const { setIsMenuOpen } = useContext(MenuContext)

@@ -13,7 +13,7 @@ const nextConfig = {
                 pathname: '/fulkbl2s1yqz/1aY55G2mHkbRAvQhrLBDEo/98f740c34083024ef3c04217686296e5/env-variables-in-nodejs.png'
             }
         ]
-    }
+    },
 };
 
 export default nextConfig;

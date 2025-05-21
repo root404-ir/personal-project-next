@@ -10,7 +10,7 @@
 //         </>
 //     )
 // }
-
+'use client'
 export const ContactPreLoader = () => {
     return (
         <>
