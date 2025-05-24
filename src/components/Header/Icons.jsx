@@ -13,7 +13,7 @@ const Icons = () => {
                 <TbBrandNextjs className="hover:bg-black hover:text-white rounded-full hover:p-2 transition-all" />
                 <FaNodeJs className="hover:bg-green-600 hover:text-white rounded-full hover:p-2 transition-all" />
                 <FaGitAlt className="hover:bg-orange-600 hover:text-white rounded-full hover:p-2 transition-all" />
-                <FaReact className="header-icon p-2 bg-blue-600 rounded-full " size={70} />
+                <FaReact className="header-icon p-2 bg-purple-500  rounded-full " size={70} />
                 <AiOutlineLinux className="hover:bg-yellow-300 dark:hover:text-black rounded-full hover:p-2 transition-all" />
                 <TbBrandTailwind className="hover:bg-blue-600 hover:text-white rounded-full hover:p-2 transition-all" />
                 <FaWordpressSimple className="hover:bg-gray-600 hover:text-white rounded-full hover:p-2 transition-all" />
