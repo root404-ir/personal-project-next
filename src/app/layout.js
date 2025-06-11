@@ -4,6 +4,7 @@ import { PostOptionProvider } from "@/contexts/PostOptionContext";
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/NavBar/Navbar";
 import BreadCrumb from "@/components/BreadCrumb";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
     title: 'وبلاگ شخصی محمد تفقدی',
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
                     <MenuProvider>
                         <Navbar />
                         <BreadCrumb />
+                        <Toaster position="top-center" reverseOrder={true} />
                         {children}
                         <Footer />
                     </MenuProvider>

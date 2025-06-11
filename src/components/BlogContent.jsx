@@ -31,9 +31,10 @@ const BlogContent = ({ post, thumbnailUrl }) => {
                         <span>{JalaliDate(post.fields.data)}</span>
                     </div>
                 </div>
-                <Link href={`/blog/post/${post.fields.slug}`} className="bg-green-400 p-0 w-full text-white font-bold rounded-b-lg mt-5 cursor-pointer flex items-center justify-center gap-2">
+                <Link href={`/blog/post/${post.fields.slug}`} className="bg-green-400 p-0 w-full text-white font-bold rounded-b-lg mt-5 cursor-pointer flex items-center justify-center gap-2 hover:bg-white hover:text-green-400 transition-all">
                     ادامه مطلب
-                    <IoIosArrowBack /> </Link>
+                    <IoIosArrowBack />
+                </Link>
             </div>
         </>
     )

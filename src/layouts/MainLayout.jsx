@@ -2,19 +2,17 @@
 'use client'
 import { useContext } from "react"
 import { MenuContext } from "../contexts/MenuOpenContext"
-import TitlePage from "../components/TitlePage"
 import Header from "@/components/Header/Header"
 import Order from "@/components/Services"
-import Blog from "@/app/blog/page"
+import BlogPage from "@/app/blog/page"
 
 const MainLayout = ({ children }) => {
     const { setIsMenuOpen } = useContext(MenuContext)
     return (
         <div className="fanum" onClick={() => setIsMenuOpen(false)}>
-            <TitlePage />
             <Header />
             <Order />
-            <Blog />
+            <BlogPage showPaginate={false} showSearch={false} my={20}/>
             <main>
                 {children}
             </main>

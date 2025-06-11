@@ -10,21 +10,15 @@ import PostShare from "@/components/PostShare";
 import PostOptions from "@/components/PostOptions";
 import Skeleton from "react-loading-skeleton";
 import Scroll from "@/components/Scroll";
-// import { PostContentRender } from "@/components/PostContentRender";
 import { usePathname } from "next/navigation";
 import RichTextRender from "@/components/RichTextRender";
 import { PostContentRender } from "@/components/PostContentRender";
-import Image from "next/image";
-// import Img from 'next/image'
 export default function PostPage({ params }) {
     const { slug } = use(params);
-
     const [post, setPost] = useState(null);
     const [assets, setAssets] = useState([]);
-    const { fontSize, fontWeight, lineSpacing } = useContext(PostOptionContext);
+    const { fontWeight, lineSpacing } = useContext(PostOptionContext);
     const pathname = usePathname();
-
-
 
     useEffect(() => {
         const client = createClient({
@@ -53,7 +47,7 @@ export default function PostPage({ params }) {
                     <Skeleton width={200} baseColor="green" />
                 </div>
                 <div className="flex justify-center">
-                    <Skeleton width={100} height={100} baseColor="green" />
+                    <Skeleton width={800} height={400} baseColor="green" className="rounded-xl" />
                 </div>
                 <Skeleton baseColor="green" className="my-4" count={10} />
             </div>
@@ -72,10 +66,11 @@ export default function PostPage({ params }) {
                 </div>
             </div>
             {thumbnailUrl && (
-                <Image id="content" src={thumbnailUrl} loading="lazy" alt={post.fields.title} className="rounded-xl mb-4 object-contain mt-5 mx-auto" width={800} height={400}/>
+                // eslint-disable-next-line @next/next/no-img-element
+                <img id="content" src={thumbnailUrl} loading="lazy" alt={post.fields.title} className="rounded-xl mb-4 object-contain mt-5 mx-auto" width={800} height={400} />
             )}
-            <span className="porse porse-lg mt-10 text-white px-10" style={{ fontSize, fontWeight, lineHeight: lineSpacing }}>
-                <PostContentRender content={post.fields.richcontent}/>
+            <span className="porse porse-lg mt-10 text-white px-10" style={{ fontWeight, lineHeight: lineSpacing }}>
+                <PostContentRender content={post.fields.richcontent} />
             </span>
             <PostShare url={typeof window !== "undefined" ? window.location.href : pathname} title={post.fields.title} />
             <PostOptions />
