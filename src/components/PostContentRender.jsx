@@ -2,14 +2,15 @@
 import { MARKS, BLOCKS } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { PostOptionContext } from "@/contexts/PostOptionContext";
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { TbCopy, TbCopyCheck } from "react-icons/tb";
 import toast from "react-hot-toast";
+import { highlightCode } from "./HighliteCode";
+
 
 export const PostContentRender = ({ content }) => {
     const { fontSize } = useContext(PostOptionContext);
     const [isCopy, setIsCopy] = useState({})
-    const codeCounter = useRef(0)
 
     const handleCopyCode = (key, code) => {
         navigator.clipboard.writeText(code)
@@ -26,13 +27,21 @@ export const PostContentRender = ({ content }) => {
         renderMark: {
             [MARKS.CODE]: text => {
                 const codeKey = generateKey(text)
+                const [highlighted, setHighlighted] = useState(null)
+                useEffect(() => {
+                    highlightCode(text, 'js').then(setHighlighted)
+                }, [text])
                 return (
-                    <div className="relative">
-                        <pre className="bg-gray-900 text-left text-green-300 text-sm font-mono rounded-md p-4 overflow-x-auto whitespace-pre-wrap leading-relaxed border border-gray-700">
-                            <code dir="ltr">{text}</code>
+                    <div dir="ltr" className="text-left my-10 relative whitespace-pre-wrap leading-relaxed">
+                        <pre className="bg-transparent p-0 overflow-x-auto">
+                            {highlighted ? (
+                                <div className="shiki" dangerouslySetInnerHTML={{ __html: highlighted }}></div>
+                            ) : (
+                                <code dir="ltr" className="text-gray-400 block">{text}</code>
+                            )}
                         </pre>
                         <button onClick={() => handleCopyCode(codeKey, text)} className="absolute top-2 right-2 text-white hover:text-green-400 flex justify-end transition duration-300 ease-in-out">
-                                {isCopy[codeKey] ? <TbCopyCheck size={18} /> : <TbCopy size={18} />}
+                            {isCopy[codeKey] ? <TbCopyCheck size={18} /> : <TbCopy size={18} />}
                         </button>
                     </div>
                 )

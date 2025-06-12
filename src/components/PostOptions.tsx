@@ -24,7 +24,7 @@ const PostOptions = () => {
     return (
         <div>
             <div onClick={() => setSettingOpen(!settingOpen)} className="cursor-pointer text-white bg-black fixed top-1/2 transform -left-3 p-2 rounded-full">
-                <VscSettings size={32} className={`${settingOpen ? 'rotate-90' : 'rotate-0'} transition-all`} />
+                <VscSettings size={28} className={`${settingOpen ? 'rotate-90' : 'rotate-0'} transition-all`} />
             </div>
             {settingOpen && (
                 <div id="setting_section" className="bg-purple-300 dark:bg-blue-300 flex flex-col justify-between fixed top-1/2 left-0 text-black w-auto h-auto p-4 rounded-lg">

@@ -22,6 +22,7 @@
     "formik": "^2.4.6",
     "framer-motion": "^12.12.1",
     "gsap": "^3.13.0",
+    "html-react-parser": "^5.2.5",
     "instantsearch.css": "^8.5.1",
     "jalaliday": "^2.3.0",
     "motion": "^12.12.1",
@@ -35,6 +36,7 @@
     "react-paginate": "^8.3.0",
     "react-share": "^5.2.2",
     "react-syntax-highlighter": "^15.6.1",
+    "shiki": "^3.6.0",
     "sweetalert2": "^11.21.1",
     "yup": "^1.6.1"
   },
