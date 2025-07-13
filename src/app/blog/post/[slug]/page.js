@@ -13,6 +13,7 @@ import Scroll from "@/components/Scroll";
 import { usePathname } from "next/navigation";
 import RichTextRender from "@/components/RichTextRender";
 import { PostContentRender } from "@/components/PostContentRender";
+import NotFound from "@/app/not-found";
 export default function PostPage({ params }) {
     const { slug } = use(params);
     const [post, setPost] = useState(null);

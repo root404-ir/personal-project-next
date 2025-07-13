@@ -1,7 +1,6 @@
-// app/not-found.tsx
 import Link from 'next/link';
 
-function NotFound() {
+export default function NotFound() {
     const suggestedLinks = [
         { title: 'صفحه اصلی', href: '/' },
         { title: 'وبلاگ', href: '/blog' },
@@ -19,10 +18,9 @@ function NotFound() {
                 {suggestedLinks.map(suggestLink => (
                     <div key={suggestLink.href}>
                         <Link href={suggestLink.href} className="px-6 py-3 bg-green-600 text-white rounded-xl shadow hover:bg-blue-700 transition-all duration-300">{suggestLink.title}</Link>
-                    </div>
+                    </div >
                 ))}
             </div>
         </div>
     );
 }
-export default NotFound

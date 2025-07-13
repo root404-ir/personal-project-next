@@ -13,6 +13,7 @@ import Head from 'next/head'
 import SearchBlog from "@/components/Search/SearchBlog"
 import { FaArrowLeft } from "react-icons/fa6";
 import Link from "next/link"
+import NotFound from "../not-found"
 const BlogPage = ({ showPaginate = true, showSearch = true, my = 5 }) => {
     const [posts, setPosts] = useState([])
     const [assets, setAssets] = useState([])
@@ -67,7 +68,7 @@ const BlogPage = ({ showPaginate = true, showSearch = true, my = 5 }) => {
                     ) : (
                         <Link href={'/blog'} className="flex items-center gap-2 group">
                             <span className="text-xl">همه مطالب</span>
-                            <FaArrowLeft size={20} className="group-hover:-translate-x-1.5 transition-all"/>
+                            <FaArrowLeft size={20} className="group-hover:-translate-x-1.5 transition-all" />
                         </Link>
                     )}
                 </div>
