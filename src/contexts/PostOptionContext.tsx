@@ -1,6 +1,6 @@
 
 'use client'
-import React from "react";
+import React, { Suspense } from "react";
 import { createContext, useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
@@ -15,7 +15,6 @@ export const PostOptionContext = createContext<PostOption | undefined>(undefined
 
 export const PostOptionProvider = ({ children }: { children: React.ReactNode }) => {
 
-    const searchParams = useSearchParams()
     const router = useRouter()
     const pathname = usePathname()
 
@@ -34,12 +33,12 @@ export const PostOptionProvider = ({ children }: { children: React.ReactNode }) 
 
 
     useEffect(() => {
-        const fontSize = searchParams.get('fontSize') || localStorage.getItem('font_size') || defaultSettings.fontSize
-        const fontWeight = searchParams.get('fontWeight') || localStorage.getItem('font_weight') || defaultSettings.fontWeight
-        const lineSpacing = searchParams.get('lineSpacing') || localStorage.getItem('line_spacing') || defaultSettings.lineSpacing
+        const fontSize = localStorage.getItem('font_size') || defaultSettings.fontSize
+        const fontWeight = localStorage.getItem('font_weight') || defaultSettings.fontWeight
+        const lineSpacing = localStorage.getItem('line_spacing') || defaultSettings.lineSpacing
 
         setSettingsState({ fontSize, fontWeight, lineSpacing })
-    }, [defaultSettings.fontSize, defaultSettings.fontWeight, defaultSettings.lineSpacing, searchParams])
+    }, [])
 
     useEffect(() => {
         localStorage.setItem('font_size', settings.fontSize)
