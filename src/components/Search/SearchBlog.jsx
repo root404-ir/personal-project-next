@@ -1,5 +1,4 @@
-'use client'
-
+"use client"
 import { useEffect, useRef } from 'react'
 import { autocomplete } from '@algolia/autocomplete-js'
 import '@algolia/autocomplete-theme-classic'
@@ -33,8 +32,8 @@ const SearchBlog = () => {
               item({ item, html }) {
                 return html`
                   <div class="p-3 flex justify-start hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg w-full">
-                    <a href="/blog/post/${item.slug}" class="block w-full">
-                      <h4 class="text-base font-bold text-black">${item.title}</h4>
+                    <a href="/blog/post/${posts.slug}" class="block w-full">
+                      <h4 class="text-base font-bold text-black">${posts.title}</h4>
                     </a>
                   </div>
                 `

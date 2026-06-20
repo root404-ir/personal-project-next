@@ -1,3 +1,4 @@
+'use client'
 import text from '../../data/text.json'
 import '../../styles/header.css'
 import Icons from './Icons'

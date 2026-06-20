@@ -1,11 +1,14 @@
-import BlogClient from "@/components/BlogClient"
-import { Suspense } from "react"
+import React from 'react'
+import { getAllPosts } from '@/lib/server/post'
+import BlogClient from '@/components/BlogClient'
 
 const BlogPage = () => {
+    const posts = getAllPosts()
     return (
-        <Suspense fallback={<div>Loading...</div>}>
-            <BlogClient />
-        </Suspense>
+        <>
+            <BlogClient posts={posts}/>
+            {/* <h1>working...</h1> */}
+        </>
     )
 }
 

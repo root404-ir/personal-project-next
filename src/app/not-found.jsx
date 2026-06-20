@@ -22,9 +22,6 @@ export default function NotFound() {
                         <Link href={suggestLink.href} className="px-6 py-3 bg-green-600 text-white rounded-xl shadow hover:bg-blue-700 transition-all duration-300">{suggestLink.title}</Link>
                     </div >
                 ))}
-                <Suspense>
-                    <BlogPage/>
-                </Suspense>
             </div>
         </div>
     );

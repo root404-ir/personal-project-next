@@ -1,3 +1,4 @@
+"use client"
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import gsap from 'gsap'
 import { useEffect } from 'react'

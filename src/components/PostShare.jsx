@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-'use client'
+"use client"
 import { useEffect, useState } from "react"
 import { EmailIcon, EmailShareButton, LinkedinIcon, LinkedinShareButton, TelegramIcon, TelegramShareButton, WhatsappIcon, WhatsappShareButton } from "react-share"
 import { MdShare } from "react-icons/md";

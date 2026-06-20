@@ -1,3 +1,4 @@
+
 import { MenuProvider } from "@/contexts/MenuOpenContext";
 import './main.css'
 import { PostOptionProvider } from "@/contexts/PostOptionContext";
@@ -5,6 +6,7 @@ import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/NavBar/Navbar";
 import BreadCrumb from "@/components/BreadCrumb";
 import { Toaster } from "react-hot-toast";
+
 
 export const metadata = {
     title: 'وبلاگ شخصی محمد تفقدی',
