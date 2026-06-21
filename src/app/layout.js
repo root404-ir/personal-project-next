@@ -6,6 +6,9 @@ import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/NavBar/Navbar";
 import BreadCrumb from "@/components/BreadCrumb";
 import { Toaster } from "react-hot-toast";
+import BlogClient from "@/components/BlogClient";
+import BlogContent from "@/components/BlogContent";
+import BlogPage from "./blog/page";
 
 
 export const metadata = {
@@ -30,6 +33,7 @@ export default function RootLayout({ children }) {
                         <BreadCrumb />
                         <Toaster position="top-center" reverseOrder={true} />
                         {children}
+                        <BlogPage/>
                         <Footer />
                     </MenuProvider>
                 </PostOptionProvider>

@@ -7,7 +7,6 @@ const BlogPage = () => {
     return (
         <>
             <BlogClient posts={posts}/>
-            {/* <h1>working...</h1> */}
         </>
     )
 }

@@ -1,8 +1,8 @@
 
 'use client'
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import { createContext, useEffect, useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 type PostOption = {
     fontSize: string,

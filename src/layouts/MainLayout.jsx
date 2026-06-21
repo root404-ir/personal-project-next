@@ -5,6 +5,7 @@ import { MenuContext } from "../contexts/MenuOpenContext"
 import Header from "@/components/Header/Header"
 import Order from "@/components/Services"
 
+
 const MainLayout = ({ children }) => {
     const { setIsMenuOpen } = useContext(MenuContext)
     return (

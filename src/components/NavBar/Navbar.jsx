@@ -8,7 +8,6 @@ import { RiCloseFill } from "react-icons/ri";
 import Link from 'next/link'
 import { MenuContext } from '../../contexts/MenuOpenContext';
 import Image from 'next/image'
-import gsap from 'gsap';
 
 const Navbar = () => {
     const [isNavFixed, setIsNavFixed] = useState(false)
