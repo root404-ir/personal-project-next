@@ -3,12 +3,10 @@
 import Link from 'next/link'
 import { JalaliDate } from "./Date"
 import { IoIosArrowBack } from "react-icons/io"
-import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
-// import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer"
 
 const BlogContent = ({ post }) => {
 
-  const summary = documentToPlainTextString(post.title).slice(0, 100) + '...'
+  const summary = post.description.slice(0,10) + '...'
   console.log(post)
   return (
     <>

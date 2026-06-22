@@ -8,7 +8,8 @@ import { RiCloseFill } from "react-icons/ri";
 import Link from 'next/link'
 import { MenuContext } from '../../contexts/MenuOpenContext';
 import Image from 'next/image'
-
+import Lottie from 'lottie-react';
+import animationData from '../../app/blog/post/wired-outline-2572-logo-github-hover-pinch.json'
 const Navbar = () => {
     const [isNavFixed, setIsNavFixed] = useState(false)
     const { isMenuOpen, setIsMenuOpen } = useContext(MenuContext)
@@ -52,7 +53,13 @@ const Navbar = () => {
                     </ul>
                     <div className='flex items-center gap-10'>
                         <Link href={'https://github.com/root404-ir/personal-project-next'} target='_blank'>
-                            <LuGithub className='text-3xl' />
+                            {/* <LuGithub className='text-3xl' /> */}
+                            <Lottie
+                                animationData={animationData}
+                                loop={true}
+                                size={200}
+                                style={{width:'80px', height:'80px'}}
+                            />
                         </Link>
 
                     </div>

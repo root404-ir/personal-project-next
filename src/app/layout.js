@@ -33,7 +33,6 @@ export default function RootLayout({ children }) {
                         <BreadCrumb />
                         <Toaster position="top-center" reverseOrder={true} />
                         {children}
-                        <BlogPage/>
                         <Footer />
                     </MenuProvider>
                 </PostOptionProvider>

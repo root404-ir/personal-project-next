@@ -57,6 +57,9 @@ const Footer = () => {
                     follow me on <DiGithubFull className="text-8xl text-green-400" />
                 </h4>
             </div>
+            <div>
+                <a href="https://lordicon.com/">Icons by Lordicon.com</a>
+            </div>
         </div>
     )
 }
