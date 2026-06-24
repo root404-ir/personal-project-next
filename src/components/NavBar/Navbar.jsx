@@ -9,7 +9,9 @@ import Link from 'next/link'
 import { MenuContext } from '../../contexts/MenuOpenContext';
 import Image from 'next/image'
 import Lottie from 'lottie-react';
-import animationData from '../../app/blog/post/wired-outline-2572-logo-github-hover-pinch.json'
+import animationData from '../../components/wired-outline-2572-logo-github-loop-roll.json'
+import animationTelegramIcon from '../../components/wired-outline-2559-logo-telegram-loop-roll.json'
+import animationEditorPage from '../../components/wired-outline-1326-command-window-line-hover-blinking.json'
 const Navbar = () => {
     const [isNavFixed, setIsNavFixed] = useState(false)
     const { isMenuOpen, setIsMenuOpen } = useContext(MenuContext)
@@ -31,7 +33,7 @@ const Navbar = () => {
     }
     return (
         <>
-            <nav className={`${isNavFixed ? 'fixed top-0 bg-blue-950 py-1.5 text-white rounded-lg px-10' : ' bg-blue-950'} w-full transition-all delay-75 border-b z-50`}>
+            <nav className={`${isNavFixed ? 'fixed top-0 bg-blue-950 py-1.5 text-white rounded-lg px-10' : ' bg-blue-950'} w-full transition-all delay-75 border-b-2  z-50 border-b-green-600 shadow-lg shadow-green-600`}>
                 <div className={`flex items-center justify-between h-auto rounded-2xl  ${isNavFixed ? 'p-0' : 'p-2'}`}>
                     <div className='lg:hidden' onClick={handleOpen}>
                         <CgMenuGridO className='text-4xl' />
@@ -51,17 +53,36 @@ const Navbar = () => {
                     <ul className='lg:flex hidden gap-10 '>
                         <Menu />
                     </ul>
-                    <div className='flex items-center gap-10'>
-                        <Link href={'https://github.com/root404-ir/personal-project-next'} target='_blank'>
-                            {/* <LuGithub className='text-3xl' /> */}
-                            <Lottie
-                                animationData={animationData}
-                                loop={true}
-                                size={200}
-                                style={{width:'80px', height:'80px'}}
-                            />
-                        </Link>
+                    <div className='flex'>
+                        <div className='flex items-center gap-10'>
+                            <Link href={'https://github.com/root404-ir/personal-project-next'} target='_blank'>
+                                {/* <LuGithub className='text-3xl' /> */}
+                                <Lottie
+                                    animationData={animationData}
+                                    loop={true}
+                                    size={200}
+                                    style={{ width: '80px', height: '80px' }}
+                                />
+                            </Link>
 
+                        </div>
+                        <div>
+                            <Link href={'https://t.me/mtjsroot'}>
+                                <Lottie
+                                    animationData={animationTelegramIcon}
+                                    style={{ width: '80px', height: '80px' }}
+                                    
+                                />
+                            </Link>
+                        </div>
+                        <div>
+                            <Link href={'https://t.me/mtjsroot'}>
+                                <Lottie
+                                    animationData={animationEditorPage}
+                                    style={{ width: '60px', height: '80px' }}
+                                />
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </nav >

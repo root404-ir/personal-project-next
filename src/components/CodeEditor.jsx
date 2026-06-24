@@ -1,15 +1,34 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Lottie from 'lottie-react'
 import animationData from './codingAnimationIcon.json'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 const CodeEditor = () => {
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger)
+        gsap.set('#section_right', { x: 200, opacity: 0 })
+        gsap.set('#section_left', { y: 200, opacity: 0 })
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#code_container',
+                toggleActions: 'play none none none'
+            }
+        })
+
+        tl.to('#section_right', { x: 0, opacity: 1, duration: 1 })
+        tl.to('#section_left', { y: 0, opacity: 1, duration: 1 })
+
+        return () => ScrollTrigger.getAll().forEach(t => t.kill())
+    }, [])
     return (
-        <div className='container my-16'>
+        <div id='code_container' className='container my-16'>
             <div className='flex justify-around my-10'>
-                <div className='w-[50%] flex flex-col justify-between'>
-                    <div>
+                <div id='section_right' className='w-[50%] flex flex-col justify-between'>
+                    <div >
                         <h2 className='text-4xl text-green-500 leading-32'>کد ادیتور آنلاین</h2>
-                        <p>شما عزیزان میتوانید در شرایطی که دسترسی به IDE های خودتون ندارید از کد ادیتور آنلاین ما استفاده کنید کد ادیتوری ساده که از زبان های html,css,js پشتیبانی میکند و میتواند نیاز های اولیه شمارا در شرایط خاص برطرف سازد.</p>
+                        <p className='text-xl'>شما عزیزان میتوانید در شرایطی که دسترسی به IDE های خودتون ندارید از کد ادیتور آنلاین ما استفاده کنید کد ادیتوری ساده که از زبان های html,css,js پشتیبانی میکند و میتواند نیاز های اولیه شمارا در شرایط خاص برطرف سازد.</p>
                     </div>
                     <div className='flex justify-center'>
                         <button className='group hover:shadow-2xl hover:shadow-green-700 hover:scale-105 hover:bg-blue-900 transition-all delay-75 bg-green-400 w-[50%] py-2 px-4 rounded-2xl cursor-pointer border '>
@@ -17,7 +36,9 @@ const CodeEditor = () => {
                         </button>
                     </div>
                 </div>
-                <Lottie animationData={animationData} />
+                <div id='section_left'>
+                    <Lottie animationData={animationData} />
+                </div>
             </div>
         </div>
     )
