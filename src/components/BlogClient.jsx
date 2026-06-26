@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 'use client'
-
 import { Suspense, useEffect, useState } from "react"
 import { useSearchParams, useRouter } from 'next/navigation'
 import Skeleton from 'react-loading-skeleton'
@@ -18,7 +17,6 @@ const BlogClient = ({ posts, showPaginate = true, showSearch = true, my = 5 }) =
     const pageFromURL = parseInt(searchParams.get('page') || '1')
     const [currentPage, setCurrentPage] = useState(pageFromURL - 1)
     const postsPerPage = 10
-
 
     useEffect(() => {
         setCurrentPage(pageFromURL - 1)

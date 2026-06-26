@@ -1,15 +1,3 @@
-
-// export const PreLoader = () => {
-//     return (
-//         <>
-//             <div className='absolute w-full bg-white top-0 '>
-//                 <div className='flex justify-center items-center h-screen'>
-//                     <img src={PreGif} alt="" />
-//                 </div>
-//             </div>
-//         </>
-//     )
-// }
 'use client'
 export const ContactPreLoader = () => {
     return (
