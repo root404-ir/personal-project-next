@@ -23,7 +23,7 @@ const SearchDialog = ({ posts }) => {
     return (
         <Command>
             <CommandDialog open={open} onOpenChange={setOpen}>
-                <CommandInput value={query} onValueChange={setQuery} placeholder="جستجو در مقالات..." />
+                <CommandInput  value={query} onValueChange={setQuery} placeholder="جستجو در مقالات..." />
                 <CommandList>
                     <CommandEmpty>
                         پستی پیدا نشد!
@@ -31,10 +31,10 @@ const SearchDialog = ({ posts }) => {
                     <CommandGroup heading="مقالات">
                         {posts.map(item => (
                             <CommandItem key={item.slug} onSelect={() => setOpen(false)}>
-                                <Link href={`/blog/post/${item.slug}`}>
-                                    <span>{item.title}</span>
-                                    <img src={item.thumb} alt="" width={200} height={200} />
-                                    <span>{item.description}</span>
+                                <Link href={`/blog/post/${item.slug}`} className="flex flex-col gap-3 w-full">
+                                    <span className="text-2xl">{item.title}</span>
+                                    <img src={item.thumb} alt="" className="rounded-2xl" width={200} height={200} />
+                                    <div className="w-full h-0.5 bg-gray-600"></div>
                                 </Link>
                             </CommandItem>
                         ))}
