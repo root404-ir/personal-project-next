@@ -16,7 +16,7 @@ const MainLayout = ({ children }) => {
             <Header />
             <Order />
             <CodeEditor />
-            <BlogLayout showPaginate={false} showSearch={false} my={20} />
+            <BlogLayout />
             <main>
                 {children}
             </main>

@@ -10,14 +10,15 @@ import Head from 'next/head'
 import SearchBlog from "@/components/Search/SearchBlog"
 import { FaArrowLeft } from "react-icons/fa6";
 import Link from "next/link"
+import SearchDialog from "./SearchDialog"
 // import NotFound from "../not-found"
-const BlogClient = ({ posts, showPaginate = true, showSearch = true, my = 5 }) => {
+const BlogClient = ({ posts, my = 5, showPaginate = true }) => {
     const searchParams = useSearchParams()
     const router = useRouter()
     const pageFromURL = parseInt(searchParams.get('page') || '1')
     const [currentPage, setCurrentPage] = useState(pageFromURL - 1)
     const postsPerPage = 10
-
+    console.count('Blog render')
     useEffect(() => {
         setCurrentPage(pageFromURL - 1)
     }, [pageFromURL])
@@ -42,16 +43,12 @@ const BlogClient = ({ posts, showPaginate = true, showSearch = true, my = 5 }) =
                         <div className="md:h-10 h-5 w-1 bg-green-600"></div>
                         <h4 className="text-4xl flex items-center">وبلاگ</h4>
                     </div>
-                    {showSearch ? (
-                        <Suspense fallback={<div>...</div>}>
-                            <SearchBlog />
-                        </Suspense>
-                    ) : (
-                        <Link prefetch href={'/blog'} className="flex items-center gap-2 group">
-                            <span className="text-xl">همه مطالب</span>
-                            <FaArrowLeft size={20} className="group-hover:-translate-x-1.5 transition-all" />
-                        </Link>
-                    )}
+
+                    <Link prefetch href={'/blog'} className="flex items-center gap-2 group">
+                        <span className="text-xl">همه مطالب</span>
+                        <FaArrowLeft size={20} className="group-hover:-translate-x-1.5 transition-all" />
+                    </Link>
+
                 </div>
 
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 mt-5 gap-10">
@@ -90,5 +87,5 @@ const BlogClient = ({ posts, showPaginate = true, showSearch = true, my = 5 }) =
 
 export default BlogClient
 
-
+// { posts, showPaginate = true, showSearch = true, my = 5 }
 

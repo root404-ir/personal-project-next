@@ -8,9 +8,11 @@ export function getAllPosts() {
     const files = fs.readdirSync(POSTS_PATH)
     return files.map(file => {
         const source = fs.readFileSync(path.join(POSTS_PATH, file), "utf-8")
-        const { data } = matter(source)
+        const { data, content } = matter(source)
         console.log("DATA:", data);
-        return data
+        return {
+            ...data
+        }
     })
 }
 
